@@ -2,7 +2,7 @@ import { notify } from 'react-notify-toast';
 import { ApolloClient } from "@apollo/client";
 import { createHttpLink } from "apollo-link-http";
 import { ApolloLink } from "apollo-link";
-import { InMemoryCache } from "apollo-cache-inmemory";
+import { InMemoryCache } from "@apollo/client";
 import { onError } from 'apollo-link-error';
 
 const errorLink = onError(({ graphQLErrors }) => {

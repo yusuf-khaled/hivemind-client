@@ -1,9 +1,5 @@
 import styled from 'styled-components';
-import { DialogTitle, TextField, DialogContentText } from '@material-ui/core';
-import TeamIcon from '@mui/icons-material/PeopleAlt';
-import HiveIcon from '@mui/icons-material/Hive';
-import WaveIcon from '@mui/icons-material/Waves';
-import MapIcon from '@mui/icons-material/Map';
+import { DialogTitle, TextField, DialogContentText, InputLabel } from '@material-ui/core';
 
 export const Title = styled(DialogTitle)`
   font-family: ${({ theme }) => theme.typography.technoFont};
@@ -20,3 +16,13 @@ export const TeamText = styled(DialogContentText)`
   margin-top: 15px;
   font-weight: bold;
 `;
+
+export const DropdownContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+`;
+
+export const DropdownInputLabel = styled(InputLabel)`
+  width: 10vw;
+`

@@ -11,42 +11,85 @@ import isEqual from 'lodash/isEqual';
 import join from 'lodash/join';
 import map from 'lodash/map';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-
-import { useTeamByMemberId } from '../../api/hooks/teams';
+import { useMutation } from '@apollo/client';
+import { useHiveMindByMemberId } from '../../api/hooks/hivemind';
+import { CREATE_HIVEMIND } from '../../api/mutations/hivemind';
 
 import Header from '../../components/Header';
+import HiveMindCard from '../../components/HiveMindCard';
 import CreateHiveMindModal from '../../components/CreateHiveMindModal';
+import Config from '../../Config';
 
 import {
-  Container,
+  PageContainer,
+  HiveMindCardContainer,
+  CreateHiveMindButtonContainer,
   CreateHiveMindButton,
 } from './styled';
+import hivemind from '../../api/queries/hivemind';
 
 const HiveMind = () => {
-  const memberId = 'ca37f617-d307-46b3-90ff-29e0f60df321';
-  const { team } = useTeamByMemberId(memberId);
+  const { memberId } = Config;
+  const { hiveminds, refetch } = useHiveMindByMemberId(memberId);
+  const [createHiveMind, { data: createHiveMindData }] = useMutation(CREATE_HIVEMIND);
 
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
 
   useEffect(() => {
-    console.log('Got team!', team);
-  }, [team]);
+    console.log('Got createHiveMindData!', createHiveMindData);
+    refetch();
+  }, [createHiveMindData]);
 
-  return (
+  const firstHiveMind = first(hiveminds);
+  const teamId = get(firstHiveMind, 'teamId');
+  const teamName = get(firstHiveMind, 'teamName');
+  console.log('teamId: ', teamId);
+
+  const onCreateHiveMind = async (data) => {
+    await createHiveMind({
+      variables: {
+        input: {
+          name: data.name,
+          goal: data.goal,
+          code: data.code,
+          createdBy: memberId,
+          teamId: teamId,
+        }
+      },
+    });
+    setIsCreateModalOpen(false);
+  };
+
+  return hiveminds && (
     <>
       <Header/>
-      <Container>
-        <CreateHiveMindButton
-          onClick={() => setIsCreateModalOpen(true)}
-        >
-          CREATE NEW HIVE MIND
-        </CreateHiveMindButton>
+      <PageContainer>
+          <CreateHiveMindButtonContainer>
+            <CreateHiveMindButton
+              onClick={() => setIsCreateModalOpen(true)}
+            >
+              CREATE HIVE MIND
+            </CreateHiveMindButton>
+          </CreateHiveMindButtonContainer>
+          <HiveMindCardContainer
+            maxWidth="lg"
+          >
+            {map(hiveminds, (hm) => (
+              <HiveMindCard
+                hivemind={hm}
+              />
+            ))}
+          </HiveMindCardContainer>
         <CreateHiveMindModal
           isOpen={isCreateModalOpen}
           onClose={() => setIsCreateModalOpen(false)}
-          team={team}
+          onCreateHiveMind={onCreateHiveMind}
+          team={{
+            id: teamId,
+            name: teamName,
+          }}
         />
-      </Container>
+      </PageContainer>
     </>
   );
 };

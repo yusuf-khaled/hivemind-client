@@ -7,6 +7,7 @@ const Paths = {
   hivemind: '/hivemind',
   brainwaves: '/brainwaves',
   paths: '/paths',
+  earnings: '/earnings',
 };
 
 export default Paths;

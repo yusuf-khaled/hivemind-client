@@ -4,6 +4,7 @@ import TeamIcon from '@mui/icons-material/PeopleAlt';
 import HiveIcon from '@mui/icons-material/Hive';
 import WaveIcon from '@mui/icons-material/Waves';
 import MapIcon from '@mui/icons-material/Map';
+import PaidIcon from '@mui/icons-material/Paid';
 
 export const NavToolbar = styled(Toolbar)`
   display: flex;
@@ -30,5 +31,9 @@ export const StyledWaveIcon = styled(WaveIcon)`
 `;
 
 export const StyledMapIcon = styled(MapIcon)`
+  color: ${({ theme }) => theme.color.primary};
+`;
+
+export const StyledPaymentsIcon = styled(PaidIcon)`
   color: ${({ theme }) => theme.color.primary};
 `;

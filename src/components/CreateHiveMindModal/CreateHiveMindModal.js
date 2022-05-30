@@ -10,34 +10,78 @@ import {
 import Paths from '../../Paths';
 
 import {
-  Title
+  Title,
+  TeamText
 } from './styled';
 
-const CreateHiveMindModal = ({ isOpen, onClose, team }) => {
+const CreateHiveMindModal = ({ isOpen, onClose, team, onCreateHiveMind }) => {
   const location = useLocation();
+
+  const [name, setName] = useState();
+  const [goal, setGoal] = useState();
+  const [code, setCode] = useState();
+
+  console.log('team: ', team);
+
+  const onCreate = () => {
+    onCreateHiveMind({
+      name,
+      goal,
+      code,
+    });
+  };
+
+  const onChangeName = (event) => {
+    setName(event.target.value);
+  }
+
+  const onChangeGoal = (event) => {
+    setGoal(event.target.value);
+  }
+
+  const onChangeCode = (event) => {
+    setCode(event.target.value);
+  }
 
   return (
     <div>
-      <Dialog open={isOpen} onClose={isOpen}>
-        <Title><i>Hive•Mind:</i> A collective intelligence</Title>
+      <Dialog open={isOpen} onClose={onClose}>
+        <Title><i>Hive•Mind:</i> A <b>collective</b> intelligence</Title>
         <DialogContent>
-          <DialogContentText>
-            To subscribe to this website, please enter your email address here. We
-            will send updates occasionally.
-          </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="Email Address"
-            type="email"
+            label="Name*"
             fullWidth
             variant="standard"
+            onChange={onChangeName}
           />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="goal"
+            label="Goal*"
+            fullWidth
+            variant="standard"
+            onChange={onChangeGoal}
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="code"
+            label="3-Letter Code*"
+            fullWidth
+            variant="standard"
+            onChange={onChangeCode}
+          />
+          <TeamText>
+            Team: '{team.name}'
+          </TeamText>
         </DialogContent>
         <DialogActions>
           <Button onClick={onClose}>Cancel</Button>
-          <Button onClick={onClose}>Subscribe</Button>
+          <Button onClick={onCreate}>Create</Button>
         </DialogActions>
       </Dialog>
     </div>

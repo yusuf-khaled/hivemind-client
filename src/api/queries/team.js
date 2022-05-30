@@ -5,9 +5,16 @@ export const GET_TEAM_BY_MEMBER_ID = gql`
     team(memberId: $memberId) {
       id
       name
-      created_at
-      updated_at
-      deleted_at
+      members {
+        id
+        name
+        email
+        title
+        avatarUrl
+      }
+      createdAt
+      updatedAt
+      deletedAt
     }
   }
 `;

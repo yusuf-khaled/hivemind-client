@@ -5,9 +5,15 @@ export const GET_HIVEMINDS_BY_MEMBER_ID = gql`
     hiveminds(memberId: $memberId) {
       id
       name
-      created_at
-      updated_at
-      deleted_at
+      code
+      goal
+      teamName
+      teamId
+      createdBy
+      createdByAvatarUrl
+      createdAt
+      updatedAt
+      deletedAt
     }
   }
 `;

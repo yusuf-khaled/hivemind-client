@@ -13,6 +13,7 @@ import {
   StyledHiveIcon,
   StyledWaveIcon,
   StyledMapIcon,
+  StyledPaymentsIcon,
 } from './styled';
 
 const Header = () => {
@@ -47,6 +48,13 @@ const Header = () => {
               <Tooltip title="PATHS" placement="top-start">
                 <IconFab>
                   <StyledMapIcon/>
+                </IconFab>
+              </Tooltip>
+            </Link>
+            <Link to={Paths.earnings}>
+              <Tooltip title="EARNINGS" placement="top-start">
+                <IconFab>
+                  <StyledPaymentsIcon/>
                 </IconFab>
               </Tooltip>
             </Link>
