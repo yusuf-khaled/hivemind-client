@@ -12,12 +12,12 @@ export const PageContainer = styled.div`
   }
 `;
 
-export const CreateBrainWaveButtonContainer = styled.div`
+export const CreateHiveMindButtonContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
 
-export const CreateBrainWaveButton = styled.button`
+export const CreateHiveMindButton = styled.button`
   padding: 10px;
   border-radius: 4px;
   cursor: pointer;
@@ -32,7 +32,7 @@ export const CreateBrainWaveButton = styled.button`
   background-color: ${({ theme }) => theme.color.secondary};
 `;
 
-export const BrainWaveCardContainer = styled(Container)`
+export const HiveMindCardContainer = styled(Container)`
   margin-top: 40px;
   padding: 0px;
   display: flex;

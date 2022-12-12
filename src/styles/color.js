@@ -1,5 +1,5 @@
 const colorOptions = {
-  primary: 'rgb(1, 98, 153)',
+  primary: '#8E99F3', // '#6FAAC0',
   secondary: '#00acc1',
   light: '#8E99F3',
   dark: '#26418F',
@@ -15,8 +15,6 @@ const color = {
   secondary: '#3FEEE6',
   ternary: '#00acc1',
   light: '#8E99F3',
-  blueText: '#016299',
-  greyText: '#6B6B6B',
-};
+}
 
 export default color;

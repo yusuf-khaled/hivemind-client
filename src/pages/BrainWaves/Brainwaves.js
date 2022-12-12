@@ -15,7 +15,7 @@ import Config from '../../Config';
 import {
   PageContainer,
   BrainWaveCardContainer,
-  CreateBrainWaveRowButtonContainer,
+  CreateBrainWaveButtonContainer,
   CreateBrainWaveButton,
 } from './styled';
 
@@ -71,13 +71,13 @@ const BrainWaves = () => {
     <>
       <Header/>
       <PageContainer>
-          <CreateBrainWaveRowButtonContainer>
+          <CreateBrainWaveButtonContainer>
             <CreateBrainWaveButton
               onClick={() => setIsCreateModalOpen(true)}
             >
               CREATE BRAINWAVE
             </CreateBrainWaveButton>
-          </CreateBrainWaveRowButtonContainer>
+          </CreateBrainWaveButtonContainer>
           <BrainWaveCardContainer
             maxWidth="lg"
           >

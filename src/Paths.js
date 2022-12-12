@@ -2,12 +2,7 @@ const Paths = {
   // API Endpoints
   backend: 'http://localhost:8080/graphql',
 
-  // Dentacloud pages
-  home: '/home',
-  signup: '/signup',
-
-
-  // Hivemind pages
+  // Pages
   teammates: '/teammates',
   hivemind: '/hivemind',
   brainwaves: '/brainwaves',

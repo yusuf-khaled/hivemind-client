@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Toolbar, Fab, Box } from '@material-ui/core';
+import { Toolbar, Fab } from '@material-ui/core';
 import TeamIcon from '@mui/icons-material/PeopleAlt';
 import HiveIcon from '@mui/icons-material/Hive';
 import WaveIcon from '@mui/icons-material/Waves';
@@ -8,15 +8,9 @@ import PaidIcon from '@mui/icons-material/Paid';
 
 export const NavToolbar = styled(Toolbar)`
   display: flex;
-  justify-content: flex-start;
-  background-color: white;
-  padding: 10px 40px;
-`;
-
-export const DentacloudIcon = styled(Box)`
-  height: 55px;
-  width: 83px;
-  cursor: pointer;
+  justify-content: space-around;
+  background-color: ${({ theme }) => theme.color.primary};
+  padding: 20px;
 `;
 
 export const IconFab = styled(Fab)`
