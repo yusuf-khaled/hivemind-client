@@ -1,4 +1,6 @@
 import { css } from 'styled-components';
+// Imported as NPM package
+import "@fontsource/noto-sans-kr";
 
 const typography = {
   title: css`
@@ -8,6 +10,7 @@ const typography = {
     letter-spacing: 1px;
   `,
   technoFont: 'monospace',
+  typeFont: 'Noto Sans KR',
 };
 
 export default typography;

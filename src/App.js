@@ -5,11 +5,10 @@ import React from 'react';
 
 import { Client } from './api';
 import Styles from './styles';
-import HiveMind from './pages/HiveMind';
-import BrainWaves from './pages/BrainWaves/Brainwaves';
+import Homepage from './pages/Homepage';
+import Signup from './pages/Signup';
 import TeamMates from './pages/TeamMates/TeamMates';
-import Paths from './pages/Paths/Paths';
-import Earnings from './pages/Earnings';
+import Paths from './Paths';
 
 const App = () => (
   <>
@@ -17,12 +16,10 @@ const App = () => (
         <ThemeProvider theme={Styles}>
         <Router>
             <Routes>
-              <Route path="/" element={<Navigate to="/hivemind" replace />} />
-              <Route exact path="/hivemind" element={<HiveMind/>}/>
-              <Route exact path="/brainwaves" element={<BrainWaves/>}/>
-              <Route exact path="/teammates" element={<TeamMates/>}/>
-              <Route exact path="/paths" element={<Paths/>}/>
-              <Route exact path="/earnings" element={<Earnings/>}/>
+              <Route path="/" element={<Navigate to={Paths.home} replace />} />
+              <Route exact path={Paths.home} element={<Homepage/>}/>
+              <Route exact path={Paths.signup} element={<Signup/>}/>
+              <Route exact path={Paths.login} element={<TeamMates/>}/>
             </Routes>
           </Router>
         </ThemeProvider>

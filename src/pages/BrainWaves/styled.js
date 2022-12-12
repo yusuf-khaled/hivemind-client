@@ -12,7 +12,7 @@ export const PageContainer = styled.div`
   }
 `;
 
-export const CreateBrainWaveButtonContainer = styled.div`
+export const CreateBrainWaveRowButtonContainer = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
